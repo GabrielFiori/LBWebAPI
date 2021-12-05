@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Commands.Validations
 {
@@ -24,31 +19,5 @@ namespace Domain.Commands.Validations
                 .GreaterThan(0).WithMessage("Quantity must be at least 1");
         }
 
-        /*
-        protected void ValidateBirthDate()
-        {
-            RuleFor(c => c.BirthDate)
-                .NotEmpty()
-                .Must(HaveMinimumAge)
-                .WithMessage("The customer must have 18 years or more");
-        }
-
-        protected void ValidateEmail()
-        {
-            RuleFor(c => c.Email)
-                .NotEmpty()
-                .EmailAddress();
-        }
-
-        protected void ValidateId()
-        {
-            RuleFor(c => c.Id)
-                .NotEqual(Guid.Empty);
-        }
-
-        protected static bool HaveMinimumAge(DateTime birthDate)
-        {
-            return birthDate <= DateTime.Now.AddYears(-18);
-        }*/
     }
 }

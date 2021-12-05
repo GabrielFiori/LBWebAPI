@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Domain.Commands;
 using Domain.Models;
@@ -36,12 +32,7 @@ namespace Domain.Handlers
                 request.AddErrors("The Book Name is already Registered.");
                 return Task.FromResult(request.ValidationResult);
             }
-
-            int newID = _bookRepository.GetNewId();
-
-            Book newBook = new(newID, request.Name, request.Quantity);
-
-            //[TODO] Create Domain Event.
+            Book newBook = new(1, request.Name, request.Quantity);
 
             _bookRepository.Add(newBook);
 

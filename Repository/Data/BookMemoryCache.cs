@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Repository.Interface;
 using Domain.Models;
 using System.Text.Json;
@@ -54,18 +51,18 @@ namespace Repository.Data
             _memoryCache.Set(bookKey, booksSerialized);
         }
 
-
-        public void Add(Book book)
-        {
-            List<Book> dbBooks = GetAll();
-            dbBooks.Add(book);
-            SaveAll(dbBooks);
-        }
-
         public int GetNewId()
         {
             List<Book> dbBooks = GetAll();
             return dbBooks.Max(x => x.Id) + 1;
+        }
+
+        public void Add(Book book)
+        {
+            List<Book> dbBooks = GetAll();
+            book.Id = GetNewId();
+            dbBooks.Add(book);
+            SaveAll(dbBooks);
         }
 
         public Book GetByName(string name)

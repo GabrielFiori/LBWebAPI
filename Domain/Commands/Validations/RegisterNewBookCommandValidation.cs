@@ -1,10 +1,4 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 
 namespace Domain.Commands.Validations
 {
@@ -14,10 +8,6 @@ namespace Domain.Commands.Validations
         {
             ValidateName();
             ValidadeQuantityGreater();
-
-
-            /*ValidateBirthDate();
-            ValidateEmail();*/
         }
 
     }

@@ -1,9 +1,6 @@
 ﻿using Domain.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 
 namespace Repository.Interface
@@ -26,11 +23,5 @@ namespace Repository.Interface
         Book GetBorrowedById(int id);
         void ReturnBook(int id);
         void Update(Book book);
-        //GetById(int id);
-        //RegisterNewBook(BookApiModel book);
-        //DeleteBook(int id);
-        //BorrowBook(int id);
-        //ReturnBook(int id);
-        //BorrowBooks();
     }
 }

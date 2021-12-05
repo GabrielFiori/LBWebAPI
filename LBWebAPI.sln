@@ -11,6 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{98FC557B-CB44-4030-8B6D-FB8EC6261B20}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - WebAPI", "1 - WebAPI", "{303F3B43-F449-4277-A99C-6350B4B3E9DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{402B8E2A-0E18-48A3-9D99-D793506BD5C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{E29A044F-8E4E-4375-85F6-6D56839F0041}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Repository", "4 - Repository", "{026C502A-CD93-43C0-A9BE-0902E0705AA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +44,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CA6A33D-8410-4AF5-BF12-83469D337711} = {303F3B43-F449-4277-A99C-6350B4B3E9DB}
+		{BC6A9643-7876-404D-8994-1A03E14BA143} = {402B8E2A-0E18-48A3-9D99-D793506BD5C7}
+		{C77C1FBF-F6A5-4C4E-94A8-57BC5B5D97CE} = {E29A044F-8E4E-4375-85F6-6D56839F0041}
+		{98FC557B-CB44-4030-8B6D-FB8EC6261B20} = {026C502A-CD93-43C0-A9BE-0902E0705AA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F589B8F-369C-4F1D-9897-389639ED1E54}

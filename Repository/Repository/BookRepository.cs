@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Domain.Models;
-using Microsoft.Extensions.Caching.Memory;
 using Repository.Interface;
 using Domain.Interface;
 
@@ -32,11 +27,6 @@ namespace Repository.Repository
         public Book GetById(int id)
         {
             return _bookMemoryCache.GetById(id);
-        }
-
-        public int GetNewId()
-        {
-            return _bookMemoryCache.GetNewId();
         }
 
         public void Add(Book addBook)

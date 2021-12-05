@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.ApiModels;
 using Application.Interface;
 using AutoMapper;
 using Domain.Commands;
 using Domain.Interface;
-using Domain.Models;
 using FluentValidation.Results;
 using MediatR;
 
@@ -32,15 +28,15 @@ namespace Application.Services
             return await Task.FromResult(_autoMapper.Map<IEnumerable<BookApiModel>>(_bookRepository.GetAll()));
         }
 
+        public async Task<BookApiModel> GetById(int id)
+        {
+            return await Task.FromResult(_autoMapper.Map<BookApiModel>(_bookRepository.GetById(id)));
+        }
+
         public async Task<ValidationResult> RegisterNewBook(BookApiModel book)
         {
             RegisterNewBookCommand newBookCommand = _autoMapper.Map<RegisterNewBookCommand>(book);
             return await _mediator.Send(newBookCommand);
-        }
-
-        public async Task<BookApiModel> GetById(int id)
-        {
-            return await Task.FromResult(_autoMapper.Map<BookApiModel>(_bookRepository.GetById(id)));
         }
 
         public async Task<ValidationResult> UpdateBook(BookApiModel book)
@@ -72,8 +68,5 @@ namespace Application.Services
             ReturnBookCommand returnCommand = new(id);
             return await _mediator.Send(returnCommand);
         }
-
-
-
     }
 }

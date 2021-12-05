@@ -1,12 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Application.ApiModels;
-using Application.Services;
-using Repository.Interface;
 using Application.Interface;
 using LBWebAPI.Controllers;
 
@@ -29,7 +24,6 @@ namespace BibliotecaWebAPI.Controllers
         {
             return await _bookAppService.GetAllBorrowed();
         }
-
 
         // POST: api/Borrow/2
         [HttpPost("{id}")]
