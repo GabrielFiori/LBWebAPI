@@ -3,11 +3,11 @@
 
 # LBWebAPI
 
-## 💻 Pré-requisitos
+## Pré-requisitos
 
 * Não existem configurações necessárias, apenas baixar e compilar a solução.
 
-## 💻 Informações
+## 📫 Informações
 
 * Os Books Possuem ID, Nome e Quantidade.
 
@@ -22,7 +22,7 @@
 * POST    /api/Borrow/{id} -> Empresta um Book.
 * POST    /api/Return/{id} -> Devolve um Book Emprestado.
 
-## 💻 Ferramentas/Modelagem/Design Pattern Utilizados.
+## 🚀 Ferramentas/Modelagem/Design Pattern Utilizados.
 
 * DDD - Domain Driven Design
 * CQRS - Command Query Responsibility Segregation.
