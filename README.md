@@ -14,7 +14,7 @@
 ## 💻 End-Points
 
 * GET     /api/Books -> Retorna todos os Books Cadastrados ( De padrão existem dois ).
-* POST    /api/Books/{Id}{Name}{Quantity} -> Cadastrar um Book.
+* POST    /api/Books/{Id}{Name}{Quantity} -> Cadastra um Book.
 * GET     /api/Books/{id} -> Retorna um Book pelo Id.
 * DELETE  /api/Books/{id} -> Remove um Book pelo Id.
 * POST    /api/BookUpdate/{Id}{Name}{Quantity} -> Atualiza um Book ( Leva em consideração o ID ).
