@@ -1,0 +1,5 @@
+dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
+dotnet ef (This is only to check that "DOTNET EF" is installed correctly.)
+dotnet ef migrations --project BibliotecaWebAPI --startup-project BibliotecaWebAPI add NOMEDAMIGRATION
+dotnet ef database --project BibliotecaWebAPI --startup-project BibliotecaWebAPI update
