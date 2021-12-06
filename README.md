@@ -13,14 +13,14 @@
 
 ## 💻 End-Points
 
-* GET     /api/Books -> Retorna todos os Books Cadastrados ( De padrão existem dois ).
-* POST    /api/Books/{Id}{Name}{Quantity} -> Cadastra um Book.
-* GET     /api/Books/{id} -> Retorna um Book pelo Id.
-* DELETE  /api/Books/{id} -> Remove um Book pelo Id.
-* POST    /api/BookUpdate/{Id}{Name}{Quantity} -> Atualiza um Book ( Leva em consideração o ID ).
-* GET     /api/Borrow -> Retorna todos os Books Atualmente emprestados.
-* POST    /api/Borrow/{id} -> Empresta um Book.
-* POST    /api/Return/{id} -> Devolve um Book Emprestado.
+* GET     /api/books -> Retorna todos os Books Cadastrados ( De padrão existem dois ).
+* POST    /api/books/{Id}{Name}{Quantity} -> Cadastra um Book.
+* GET     /api/books/{id} -> Retorna um Book pelo Id.
+* DELETE  /api/books/{id} -> Remove um Book pelo Id.
+* POST    /api/book/{Id}{Name}{Quantity} -> Atualiza um Book ( Leva em consideração o ID ).
+* GET     /api/borrowedbooks -> Retorna todos os Books Atualmente emprestados.
+* POST    /api/borrow/book/{id} -> Empresta um Book.
+* POST    /api/return/book/{id} -> Devolve um Book Emprestado.
 
 ## 🚀 Ferramentas/Modelagem/Design Pattern Utilizados.
 
