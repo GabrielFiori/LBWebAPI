@@ -173,7 +173,20 @@ namespace Repository.Data
             {
                 dbBookBorrowed.Quantity -= 1;
             }
+            AddQuantityBook(dbBookBorrowed.Id, 1);
             SaveAllBorrow(dbBooks);
+        }
+
+        public void AddQuantityBook(int id,int ammout)
+        {
+            List<Book> dbBooks = GetAll();
+
+            Book SelectedBook = dbBooks.Find(x => x.Id == id);
+
+            SelectedBook.Quantity += ammout;
+
+            SaveAll(dbBooks);
+
         }
     }
 }

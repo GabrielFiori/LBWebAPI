@@ -9,18 +9,18 @@ namespace BibliotecaWebAPI.Controllers
     [ApiController]
     public class ReturnController : ApiController
     {
-        private readonly IBookAppService _bookAppService;
+        private readonly IBookCommandAppService _bookCommandAppService;
 
-        public ReturnController(IBookAppService bookAppService)
+        public ReturnController( IBookCommandAppService bookCommandAppService)
         {
-            _bookAppService = bookAppService;
+            _bookCommandAppService = bookCommandAppService;
         }
 
         // POST: api/Return/2
-        [HttpPost("{id}")]
+        [HttpPost("/api/return/book/{id}")]
         public async Task<IActionResult> ReturnBook(int id)
         {
-            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookAppService.ReturnBook(id));
+            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookCommandAppService.ReturnBook(id));
         }
 
     }

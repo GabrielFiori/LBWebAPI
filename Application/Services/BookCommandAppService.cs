@@ -10,29 +10,17 @@ using MediatR;
 
 namespace Application.Services
 {
-    public class BookAppService : IBookAppService
+    public class BookCommandAppService : IBookCommandAppService
     {
-        private readonly IBookRepository _bookRepository;
         private readonly IMapper _autoMapper;
         private readonly IMediator _mediator;
         
-        public BookAppService(IBookRepository bookRepository, IMapper autoMapper, IMediator mediator)
+        public BookCommandAppService(IMapper autoMapper, IMediator mediator)
         {
-            _bookRepository = bookRepository;
             _autoMapper = autoMapper;
             _mediator = mediator;
         }
         
-        public async Task<IEnumerable<BookApiModel>> GetAll()
-        {
-            return await Task.FromResult(_autoMapper.Map<IEnumerable<BookApiModel>>(_bookRepository.GetAll()));
-        }
-
-        public async Task<BookApiModel> GetById(int id)
-        {
-            return await Task.FromResult(_autoMapper.Map<BookApiModel>(_bookRepository.GetById(id)));
-        }
-
         public async Task<ValidationResult> RegisterNewBook(BookApiModel book)
         {
             RegisterNewBookCommand newBookCommand = _autoMapper.Map<RegisterNewBookCommand>(book);
@@ -56,11 +44,6 @@ namespace Application.Services
         {
             BorrowBookCommand borrowCommand = new(id);
             return await _mediator.Send(borrowCommand);
-        }
-
-        public async Task<IEnumerable<BookApiModel>> GetAllBorrowed()
-        {
-            return await Task.FromResult(_autoMapper.Map<IEnumerable<BookApiModel>>(_bookRepository.GetAllBorrowed()));
         }
 
         public async Task<ValidationResult> ReturnBook(int id)

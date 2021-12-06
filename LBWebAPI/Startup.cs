@@ -37,7 +37,8 @@ namespace LBWebAPI
             });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IBookMemoryCache, BookMemoryCache>();
-            services.AddScoped<IBookAppService, BookAppService>();
+            services.AddScoped<IBookQueriesAppService, BookQueriesAppService>();
+            services.AddScoped<IBookCommandAppService, BookCommandAppService>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddMediatR(typeof(CommandHandler).Assembly);
         }

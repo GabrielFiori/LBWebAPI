@@ -11,25 +11,27 @@ namespace BibliotecaWebAPI.Controllers
     [ApiController]
     public class BorrowController : ApiController
     {
-        private readonly IBookAppService _bookAppService;
+        private readonly IBookQueriesAppService _bookQueriesAppService;
+        private readonly IBookCommandAppService _bookCommandAppService;
 
-        public BorrowController(IBookAppService bookAppService)
+        public BorrowController(IBookQueriesAppService bookQueriesAppService, IBookCommandAppService bookCommandAppService)
         {
-            _bookAppService = bookAppService;
+            _bookQueriesAppService = bookQueriesAppService;
+            _bookCommandAppService = bookCommandAppService;
         }
 
-        // GET: api/Borrow
-        [HttpGet]
+        // GET: api/borrow
+        [HttpGet("/api/borrowedbooks/")]
         public async Task<IEnumerable<BookApiModel>> GetBook()
         {
-            return await _bookAppService.GetAllBorrowed();
+            return await _bookQueriesAppService.GetAllBorrowed();
         }
 
         // POST: api/Borrow/2
-        [HttpPost("{id}")]
+        [HttpPost("/api/borrow/book/{id}")]
         public async Task<IActionResult> BorrowBook(int id)
         {
-            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookAppService.BorrowBook(id));
+            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookCommandAppService.BorrowBook(id));
         }
 
     }

@@ -5,15 +5,10 @@ using System.Threading.Tasks;
 
 namespace Application.Interface
 {
-    public interface IBookAppService
+    public interface IBookQueriesAppService
     {
         Task<IEnumerable<BookApiModel>> GetAll();
         Task<BookApiModel> GetById(int id);
-        Task<ValidationResult> RegisterNewBook(BookApiModel book);
-        Task<ValidationResult> UpdateBook(BookApiModel book);
-        Task<ValidationResult> RemoveBook(int id);
-        Task<ValidationResult> BorrowBook(int id);
         Task<IEnumerable<BookApiModel>> GetAllBorrowed();
-        Task<ValidationResult> ReturnBook(int id);
     }
 }

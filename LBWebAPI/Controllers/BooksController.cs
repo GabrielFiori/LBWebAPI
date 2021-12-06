@@ -11,46 +11,48 @@ namespace BibliotecaWebAPI.Controllers
     [ApiController]
     public class BooksController : ApiController
     {
-        private readonly IBookAppService _bookAppService;
+        private readonly IBookQueriesAppService _bookQueriesAppService;
+        private readonly IBookCommandAppService _bookCommandAppService;
 
-        public BooksController(IBookAppService bookAppService)
+        public BooksController(IBookQueriesAppService bookQueriesAppService, IBookCommandAppService bookCommandAppService)
         {
-            _bookAppService = bookAppService;
+            _bookQueriesAppService = bookQueriesAppService;
+            _bookCommandAppService = bookCommandAppService;
         }
 
-        // GET: api/Books
-        [HttpGet]
+        // GET: /api/books/
+        [HttpGet("/api/books/")]
         public async Task<IEnumerable<BookApiModel>> GetBook()
         {         
-            return await _bookAppService.GetAll();
+            return await _bookQueriesAppService.GetAll();
         }
 
-        // GET: api/Books/2
-        [HttpGet("{id}")]
+        // GET: /api/book/2
+        [HttpGet("/api/book/{id}")]
         public async Task<BookApiModel> GetBook(int id)
         {
-            return await _bookAppService.GetById(id);
+            return await _bookQueriesAppService.GetById(id);
         }
 
-        // POST: api/Books
-        [HttpPost]
+        // POST: /api/book/
+        [HttpPost("/api/book/")]
         public async Task<IActionResult> Post([FromBody] BookApiModel bookApiModel)
         {
-            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookAppService.RegisterNewBook(bookApiModel));
+            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookCommandAppService.RegisterNewBook(bookApiModel));
         }
 
-        // POST: api/BookUpdate/2
-        [HttpPost("/api/BookUpdate/")]
+        // PUT: /api/book/
+        [HttpPut("/api/book/")]
         public async Task<IActionResult> UpdateBook([FromBody] BookApiModel bookApiModel)
         {
-            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookAppService.UpdateBook(bookApiModel));
+            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookCommandAppService.UpdateBook(bookApiModel));
         }
 
-        // DELETE: api/Books/5
-        [HttpDelete("{id}")]
+        // DELETE: /api/book/
+        [HttpDelete("/api/book/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookAppService.RemoveBook(id));
+            return !ModelState.IsValid ? CustomResponse(ModelState) : CustomResponse(await _bookCommandAppService.RemoveBook(id));
         }
 
     }
